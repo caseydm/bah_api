@@ -1,5 +1,6 @@
 from django.conf.urls import include, url
 from django.contrib import admin
+from bah_api.models import BAH
 from rest_framework import routers, serializers, viewsets
 
 # Serializers define the API representation.

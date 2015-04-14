@@ -6,5 +6,3 @@ class BAH(models.Model):
 	dependents = models.BooleanField()
 	MHA = models.CharField(max_length = 5)
 	rate = models.DecimalField(max_digits=15, decimal_places=2)
-
-		
