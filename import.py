@@ -1,6 +1,5 @@
 import csv
 from bah_api.models import withDependents
-from django.contrib.auth.models import User
 
 # open the CSV file
 f = open("BAH2015/bahw15.txt")
@@ -8,21 +7,20 @@ f = open("BAH2015/bahw15.txt")
 # create CSV reader from the file
 csv_f = csv.reader(f)
 
-# print a row
-#print(next(csv_f))
+# assign model
 
-# print a model object
-wdModel = withDependents()
-#wdModel = (next(csv_f))
-#for x in wdModel._meta.fields:
-	#print(x.name)
-#print(wdModel._meta.fields[1].name)
 
-i = 1
-for y in next(csv_f):
-	print(wdModel._meta.fields[i].name, ':', y) 
-	i += 1
-
+# loop through each row and assign to the model fields
+for row in csv_f:
+	i = 1
+	# create a model instance	
+	wdModel = withDependents()
+	#loop through the rows
+	for y in row:
+		setattr(wdModel, wdModel._meta.fields[i].name, y)
+		i += 1
+	# save each row
+	wdModel.save()
 
 # close the file
 f.close()

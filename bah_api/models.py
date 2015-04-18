@@ -30,6 +30,9 @@ class withDependents(models.Model):
 	O9 = models.DecimalField(max_digits = 10, decimal_places = 2)
 	O10 = models.DecimalField(max_digits = 10, decimal_places = 2)
 
+	def __str__(self):
+		return self.MHA
+
 class ZipMHA(models.Model):
 	ZipCode = models.IntegerField()
 	MHA = models.CharField(max_length = 5)
