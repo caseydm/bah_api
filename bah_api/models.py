@@ -1,4 +1,5 @@
 from django.db import models
+from adaptor.model import CsvModel
 
 class withDependents(models.Model):
 	MHA = models.CharField(max_length = 5, primary_key = True)
@@ -30,3 +31,8 @@ class withDependents(models.Model):
 class ZipMHA(models.Model):
 	ZipCode = models.IntegerField()
 	MHA = models.CharField(max_length = 5)
+
+class MyCsvModel(CsvDbModel):
+	class Meta:
+		dbModel = withDependents
+		delimiter = ","
