@@ -26,6 +26,9 @@ class withDependents(models.Model):
 	O5 = models.DecimalField(max_digits = 10, decimal_places = 2)
 	O6 = models.DecimalField(max_digits = 10, decimal_places = 2)
 	O7 = models.DecimalField(max_digits = 10, decimal_places = 2)
+	O8 = models.DecimalField(max_digits = 10, decimal_places = 2)
+	O9 = models.DecimalField(max_digits = 10, decimal_places = 2)
+	O10 = models.DecimalField(max_digits = 10, decimal_places = 2)
 
 class ZipMHA(models.Model):
 	ZipCode = models.IntegerField()
