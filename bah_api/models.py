@@ -1,7 +1,7 @@
 from django.db import models
 
 class withDependents(models.Model):
-	MHA = models.CharField(max_length = 5, primary_key = True)
+	MHA = models.CharField(max_length = 5)
 	E1 = models.DecimalField(max_digits = 10, decimal_places = 2)
 	E2 = models.DecimalField(max_digits = 10, decimal_places = 2)
 	E3 = models.DecimalField(max_digits = 10, decimal_places = 2)
