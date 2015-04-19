@@ -18,6 +18,6 @@ def LoadCSV(file_location, my_model, delim):
 	f.close()
 
 # run functions
-# LoadCSV("BAH2015/bahw15.txt", withOutDependents(), ",")
-LoadCSV("BAH2015/sorted_zipmha15.txt", ZipMHA, ' ')
-# ZipMHA.objects.all().delete()
+# LoadCSV("BAH2015/bahw15.txt", withDependents, ',')
+# LoadCSV("BAH2015/bahwo15.txt", withOutDependents, ',')
+# LoadCSV("BAH2015/sorted_zipmha15.txt", ZipMHA, ' ')
