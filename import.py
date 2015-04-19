@@ -8,7 +8,7 @@ def LoadCSV(file_location, my_model, delim):
 	for row in csv_f:
 		i = 1
 		# create a model instance	
-		target_model = my_model
+		target_model = my_model()
 		#loop through the rows
 		for y in row:
 			setattr(target_model, target_model._meta.fields[i].name, y)
@@ -17,22 +17,7 @@ def LoadCSV(file_location, my_model, delim):
 		target_model.save()
 	f.close()
 
-# # ZipMHA
-# def LoadZipMHA(file_location):
-# 	f = open(file_location)
-# 	csv_f = csv.reader(f, delimiter=' ')
-# 	for row in csv_f:
-# 		i = 1
-# 		# create a model instance	
-# 		zipModel = ZipMHA()
-# 		#loop through the rows
-# 		for y in row:
-# 			setattr(zipModel, zipModel._meta.fields[i].name, y)
-# 			i += 1
-# 		# save each row
-# 		zipModel.save()
-# 	f.close()
-
 # run functions
 # LoadCSV("BAH2015/bahw15.txt", withOutDependents(), ",")
-# LoadCSV("BAH2015/sorted_zipmha15.txt", ZipMHA(), " ")
+LoadCSV("BAH2015/sorted_zipmha15.txt", ZipMHA, ' ')
+# ZipMHA.objects.all().delete()
