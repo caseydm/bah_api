@@ -34,5 +34,5 @@ class withDependents(models.Model):
 		return self.MHA
 
 class ZipMHA(models.Model):
-	ZipCode = models.IntegerField()
+	ZipCode = models.CharField(max_length = 5)
 	MHA = models.CharField(max_length = 5)
