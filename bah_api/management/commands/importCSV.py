@@ -1,4 +1,5 @@
 import csv
+from settings import BASE_DIR
 from bah_api.models import withDependents, withOutDependents, ZipMHA
 
 # Populate CSV file into model
@@ -18,6 +19,6 @@ def LoadCSV(file_location, my_model, delim):
 	f.close()
 
 # run functions
-LoadCSV("BAH2015/bahw15.txt", withDependents, ',')
-LoadCSV("BAH2015/bahwo15.txt", withOutDependents, ',')
-LoadCSV("BAH2015/sorted_zipmha15.txt", ZipMHA, ' ')
+LoadCSV(BASE_DIR + "BAH2015/bahw15.txt", withDependents, ',')
+LoadCSV(BASE_DIR + "BAH2015/bahwo15.txt", withOutDependents, ',')
+LoadCSV(BASE_DIR + "BAH2015/sorted_zipmha15.txt", ZipMHA, ' ')
