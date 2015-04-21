@@ -3,7 +3,6 @@ from django.conf import settings
 import csv
 from bah_api.models import withDependents, withOutDependents, ZipMHA
 
-
 class Command(BaseCommand):
 	def handle(self, *args, **options):
 		# Populate CSV file into model
@@ -23,6 +22,6 @@ class Command(BaseCommand):
 			f.close()
 
 		# run functions
-		# LoadCSV(settings.PROJECT_PATH + "/BAH2015/bahw15.txt", withDependents, ',')
-		# LoadCSV(settings.PROJECT_PATH + "/BAH2015/bahwo15.txt", withOutDependents, ',')
-		# LoadCSV(settings.PROJECT_PATH + "/BAH2015/sorted_zipmha15.txt", ZipMHA, ' ')
+		LoadCSV(settings.PROJECT_PATH + "/BAH2015/bahw15.txt", withDependents, ',')
+		LoadCSV(settings.PROJECT_PATH + "/BAH2015/bahwo15.txt", withOutDependents, ',')
+		LoadCSV(settings.PROJECT_PATH + "/BAH2015/sorted_zipmha15.txt", ZipMHA, ' ')
