@@ -1,17 +1,20 @@
 from django.db import models
 
+# withDependents table
 class withDependents(models.Model):
 	MHA = models.CharField(max_length = 5)
 
 	def __str__(self):
 		return self.MHA
 
+# withOutDependents table
 class withOutDependents(models.Model):
 	MHA = models.CharField(max_length = 5)
 	
 	def __str__(self):
 		return self.MHA
 
+# Zip Code and MHA table
 class ZipMHA(models.Model):
 	ZipCode = models.CharField(max_length = 5)
 	MHA = models.CharField(max_length = 5)
