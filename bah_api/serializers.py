@@ -1,7 +1,7 @@
-from django.contrib.auth.models import User
+from .models import withDependents, withOutDependents, ZipMHA
 from rest_framework import serializers
 
-class UserSerializer(serializers.ModelSerializer):
+class withDependentsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'email')
+        model = withDependents
+        fields = ('MHA', 'E1', 'E2', 'E3')
