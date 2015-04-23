@@ -1,15 +1,13 @@
 from .models import withDependents, withOutDependents, ZipMHA
-
-from bah_api.serializers import withDependentsSerializer
+from .serializers import withDependentsSerializer
 from django.http import Http404
-from rest_framework.views import APIView
-from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 
 # get BAH rates based on MHA
-@csrf_exempt
+@api_view(['GET'])
 def rate_detail(request, MHA):
     """
     Retrieve BAH rates
@@ -17,8 +15,8 @@ def rate_detail(request, MHA):
     try:
         rates = withDependents.objects.get(MHA=MHA)
     except withDependents.DoesNotExist:
-        return HttpResponse(status=404)
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
         serializer = withDependentsSerializer(rates)
-        return JSONResponse(serializer.data)
+        return Response(serializer.data)
