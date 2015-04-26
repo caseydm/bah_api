@@ -4,5 +4,5 @@ from bah_api import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^rates/(?P<Zip>([0-9]{5}))/$', views.zip_rates),
+    url(r'^(?P<zip_code>([0-9]{5}))/(?P<with_or_without>(\w+))/$', views.zip_rates),
 ]
