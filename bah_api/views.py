@@ -4,9 +4,15 @@ from django.http import Http404
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.shortcuts import render
+
+def index(request):
+    rate_list = withDependents.objects.filter(MHA = 'ZZ890').values()
+    context = {'rate_list': rate_list}
+    return render(request, 'bah_api/index.html', context)
 
 @api_view(['GET'])
-def zip_rates(request, zip_code, with_or_without):
+def rates(request, zip_code, with_or_without):
     """
     Retrieve BAH rates based on zip code
     """
