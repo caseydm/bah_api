@@ -3,13 +3,6 @@ from .serializers import withDependentsSerializer
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from django.shortcuts import render
-
-
-def index(request):
-    rate_list = withDependents.objects.filter(MHA='ZZ890').values()
-    context = {'rate_list': rate_list}
-    return render(request, 'bah_api/index.html', context)
 
 
 @api_view(['GET'])
