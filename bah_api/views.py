@@ -23,3 +23,8 @@ def rates(request, zip_code, with_or_without):
     if request.method == 'GET':
         serializer = withDependentsSerializer(rate2)
         return Response(serializer.data)
+
+
+@api_view()
+def test(request):
+    return Response({'name': 'Casey'})

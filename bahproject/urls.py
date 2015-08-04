@@ -8,4 +8,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^(?P<zip_code>([0-9]{5}))/(?P<with_or_without>(\w+))/$',
         views.rates),
+    url(r'^test/',
+        views.test),
 ]
