@@ -1,5 +1,5 @@
 from .models import withDependents, withOutDependents, ZipMHA
-from .serializers import withDependentsSerializer
+from .serializers import withDependentsSerializer, BAHSerializer
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -27,4 +27,7 @@ def rates(request, zip_code, with_or_without):
 
 @api_view()
 def test(request):
-    return Response({'name': 'Casey'})
+    MHA = ZipMHA.objects.get(ZipCode='31088')
+    rate = withDependents.objects.get(MHA=MHA)
+    serializer = BAHSerializer(rate)
+    return Response(serializer.data)
