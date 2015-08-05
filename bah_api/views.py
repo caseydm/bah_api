@@ -27,7 +27,7 @@ def rates(request, zip_code, with_or_without):
 
 @api_view()
 def test(request):
-    MHA = ZipMHA.objects.get(ZipCode='31088')
-    rate = withDependents.objects.get(MHA=MHA)
+    MHA_query = ZipMHA.objects.get(ZipCode='31088')
+    rate = withDependents.objects.get(MHA=MHA_query.MHA)
     serializer = BAHSerializer(rate)
     return Response(serializer.data)
