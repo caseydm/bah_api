@@ -16,8 +16,6 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_PATH = os.path.abspath(os.path.dirname(__name__))
 
-#BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '7&4+d-%yw(*fop@gijt*q5l0piduf7y#898egwu+n_^w#z%b*3'
 
@@ -29,7 +27,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
+    #'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -69,17 +67,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'bahproject.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 
 # elephant Postgres database connection
 DATABASES = {
