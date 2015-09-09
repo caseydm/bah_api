@@ -10,7 +10,7 @@ $(document).ready(function(){
         $("tbody").empty()
         $("thead").empty()
         $("thead").append('<tr><th>Rate</th><th>BAH Rate</th></tr>')
-        $.getJSON("http://127.0.0.1:8000/" + $("#zip").val() + "/with/", function(result){
+        $.getJSON("/" + $("#zip").val() + "/with/", function(result){
             $.each(result, function(i, field){
                 $("tbody").append('<tr><td>' + i + "</td><td>" + field + '</td></tr>');
             });
