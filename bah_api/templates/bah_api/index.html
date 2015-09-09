@@ -1,13 +1,18 @@
 <html>
 <head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <title>BAH Calculator</title>
 <script>
 $(document).ready(function(){
-    $("button").click(function(){
-        $.getJSON("https://bahapi.herokuapp.com/96707/with/", function(result){
+    $("form :Submit").click(function(event){
+        event.preventDefault();
+        $("tbody").empty()
+        $("thead").empty()
+        $("thead").append('<tr><th>Rate</th><th>BAH Rate</th></tr>')
+        $.getJSON("http://127.0.0.1:8000/" + $("#zip").val() + "/with/", function(result){
             $.each(result, function(i, field){
-                $("div").append(field + " ");
+                $("tbody").append('<tr><td>' + i + "</td><td>" + field + '</td></tr>');
             });
         });
     });
@@ -16,9 +21,23 @@ $(document).ready(function(){
 </head>
 <body>
 
-<button>Get JSON data</button>
+<div class="container">
+  <h2>BAH Rates</h2>
+  <p>Use the form below to calculate BAH rates:</p>
 
-<div></div>
+<form action="">
+<p><b>Zip Code:</b> <input type="text" id="zip"></p>
+<input type="submit" value="Submit">
+</form>
+<br>
+
+  <table class="table">
+    <thead>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
 
 <p>Enter a url like: <a href = "https://bahapi.herokuapp.com/96707/with/">https://bahapi.herokuapp.com/96707/with/</a></p>
 </body>
